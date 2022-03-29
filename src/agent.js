@@ -5,7 +5,7 @@ import React from "react";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = env.API_URL;
+const API_ROOT = 'http://nodebackendabhi.squareops.co.in/api';
 export function MyComponent() {
   return <div>{env.API_URL}</div>;
 }
