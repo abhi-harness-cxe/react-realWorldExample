@@ -5,7 +5,7 @@ import React from "react";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'https://nodebackendabhi.squareops.co.in/api';
+const API_ROOT = 'https://node-backend.abhishek-wordpress-apache.tk/api';
 export function MyComponent() {
   return <div>{env.API_URL}</div>;
 }
