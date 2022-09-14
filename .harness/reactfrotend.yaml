@@ -1,0 +1,34 @@
+pipeline:
+  name: react-frotend
+  identifier: reactfrotend
+  projectIdentifier: Default_Project_1662995130999
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: abhidev91
+        build: <+input>
+  stages:
+    - stage:
+        name: Build and push to dockerhub
+        identifier: Build_and_push_to_dockerhub
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesHosted
+            spec:
+              identifier: k8s-hosted-infra
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and push to dockerhub
+                  identifier: Build_and_push_to_dockerhub
+                  spec:
+                    connectorRef: newdocker
+                    repo: vampireking/harenessdemo
+                    tags:
+                      - <+pipeline.sequenceId>
