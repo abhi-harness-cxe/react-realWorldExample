@@ -50,6 +50,22 @@ pipeline:
                       imagePath: vampireking/harenessdemo
                       tag: <+input>
                     type: DockerRegistry
+                manifests:
+                  - manifest:
+                      identifier: test
+                      type: K8sManifest
+                      spec:
+                        store:
+                          type: Github
+                          spec:
+                            connectorRef: abhidev91
+                            gitFetchType: Branch
+                            paths:
+                              - manifest.yaml
+                            branch: master
+                        valuesPaths:
+                          - values.yaml
+                        skipResourceVersioning: false
               type: Kubernetes
           infrastructure:
             environmentRef: test
